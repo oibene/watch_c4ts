@@ -1,0 +1,25 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/mouse-animation-walk.png" type="Texture" id=1]
+[ext_resource path="res://src/actor/mouse.gd" type="Script" id=2]
+[ext_resource path="res://assets/mouse_walk_right.tres" type="Animation" id=3]
+[ext_resource path="res://assets/mouse_walk_left.tres" type="Animation" id=4]
+[ext_resource path="res://assets/walk_down.tres" type="Animation" id=5]
+[ext_resource path="res://assets/mouse_walk_up.tres" type="Animation" id=6]
+
+[node name="mouse" type="KinematicBody2D"]
+position = Vector2( 34, 83 )
+script = ExtResource( 2 )
+
+[node name="Mouse-animation-walk" type="Sprite" parent="."]
+position = Vector2( -35, -7 )
+texture = ExtResource( 1 )
+hframes = 4
+vframes = 4
+frame = 11
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/walk_down = ExtResource( 5 )
+anims/walk_left = ExtResource( 4 )
+anims/walk_right = ExtResource( 3 )
+anims/walk_up = ExtResource( 6 )
