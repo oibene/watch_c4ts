@@ -1,0 +1,93 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/cenario/quarto/programando.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Programando:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "parado"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Programando:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "programando"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Programando:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "parado"
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "programando"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=6]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=7]
+
+[sub_resource type="AnimationNodeStateMachine" id=8]
+states/parado/node = SubResource( 4 )
+states/parado/position = Vector2( 151, 56.3333 )
+states/programando/node = SubResource( 5 )
+states/programando/position = Vector2( 364.333, 55.8889 )
+transitions = [ "parado", "programando", SubResource( 6 ), "programando", "parado", SubResource( 7 ) ]
+start_node = "parado"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=9]
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 14, 16 )
+
+[node name="Computador" type="Area2D"]
+
+[node name="Programando" type="Sprite" parent="."]
+position = Vector2( 52, 39 )
+texture = ExtResource( 1 )
+hframes = 2
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/parado = SubResource( 2 )
+anims/programando = SubResource( 3 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 8 )
+anim_player = NodePath("../Animation")
+active = true
+parameters/playback = SubResource( 9 )
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( 52, 39 )
+shape = SubResource( 10 )
