@@ -1,0 +1,102 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/cenario/quarto/camas.png" type="Texture" id=1]
+[ext_resource path="res://src/objects/casa/cama.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camas:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "dormindo"
+length = 1.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camas:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "vazia"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camas:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "dormindo"
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "vazia"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=6]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=7]
+
+[sub_resource type="AnimationNodeStateMachine" id=8]
+states/dormindo/node = SubResource( 4 )
+states/dormindo/position = Vector2( 352.333, 65.6667 )
+states/vazia/node = SubResource( 5 )
+states/vazia/position = Vector2( 133.667, 65.6667 )
+transitions = [ "vazia", "dormindo", SubResource( 6 ), "dormindo", "vazia", SubResource( 7 ) ]
+start_node = "vazia"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=9]
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 15.5, 24 )
+
+[node name="cama" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 0
+mode = 3
+mass = 0.00102041
+gravity_scale = 0.0
+script = ExtResource( 2 )
+
+[node name="Camas" type="Sprite" parent="."]
+position = Vector2( 131, 123 )
+texture = ExtResource( 1 )
+hframes = 4
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/dormindo = SubResource( 3 )
+anims/vazia = SubResource( 2 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 8 )
+anim_player = NodePath("../Animation")
+active = true
+parameters/playback = SubResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 131.5, 125 )
+shape = SubResource( 10 )
