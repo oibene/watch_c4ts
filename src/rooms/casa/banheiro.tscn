@@ -584,6 +584,7 @@ position = Vector2( 65, 24 )
 texture = ExtResource( 2 )
 
 [node name="banheira" type="RigidBody2D" parent="Objetos"]
+mode = 3
 
 [node name="Banheira" type="Sprite" parent="Objetos/banheira"]
 position = Vector2( 59, 100 )
@@ -593,7 +594,8 @@ texture = ExtResource( 3 )
 position = Vector2( 59, 100 )
 shape = SubResource( 36 )
 
-[node name="pia" type="Area2D" parent="Objetos"]
+[node name="pia" type="RigidBody2D" parent="Objetos"]
+mode = 3
 
 [node name="Pia-pequena" type="Sprite" parent="Objetos/pia"]
 position = Vector2( 47, 48 )
@@ -603,7 +605,8 @@ texture = ExtResource( 4 )
 position = Vector2( 47, 50 )
 shape = SubResource( 37 )
 
-[node name="caixa" type="Area2D" parent="Objetos"]
+[node name="caixa" type="RigidBody2D" parent="Objetos"]
+mode = 3
 
 [node name="Caixa-areia" type="Sprite" parent="Objetos/caixa"]
 position = Vector2( 81, 68 )

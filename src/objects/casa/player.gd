@@ -13,7 +13,6 @@ onready var estado_animado = animation_tree.get("parameters/playback")
 # funcao q chama funcoes
 func _physics_process(_delta: float) -> void: #roda durante todo nosso jogo
 	mexe()
-
 	
 # move personagem
 func mexe() -> void:
@@ -34,3 +33,4 @@ func mexe() -> void:
 	else:
 		estado_animado.travel("idle")
 		
+

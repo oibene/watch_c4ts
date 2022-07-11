@@ -603,7 +603,8 @@ texture = ExtResource( 7 )
 position = Vector2( 81, 20 )
 texture = ExtResource( 5 )
 
-[node name="cadeiras" type="Area2D" parent="Objetos"]
+[node name="cadeiras" type="RigidBody2D" parent="Objetos"]
+mode = 3
 
 [node name="Cadeira-dir" type="Sprite" parent="Objetos/cadeiras"]
 position = Vector2( 105, 87 )
@@ -621,7 +622,9 @@ shape = SubResource( 45 )
 position = Vector2( 47, 87 )
 shape = SubResource( 46 )
 
-[node name="geladeira" type="Area2D" parent="Objetos"]
+[node name="geladeira" type="RigidBody2D" parent="Objetos"]
+mode = 3
+mass = 0.00102041
 
 [node name="Geladeira" type="Sprite" parent="Objetos/geladeira"]
 position = Vector2( 47, 46 )
@@ -631,7 +634,8 @@ texture = ExtResource( 4 )
 position = Vector2( 47, 50 )
 shape = SubResource( 42 )
 
-[node name="fogao" type="Area2D" parent="Objetos"]
+[node name="fogao" type="RigidBody2D" parent="Objetos"]
+mode = 3
 
 [node name="Fogao" type="Sprite" parent="Objetos/fogao"]
 position = Vector2( 126, 50 )
@@ -641,7 +645,8 @@ texture = ExtResource( 3 )
 position = Vector2( 126, 52 )
 shape = SubResource( 43 )
 
-[node name="pia" type="Area2D" parent="Objetos"]
+[node name="pia" type="RigidBody2D" parent="Objetos"]
+mode = 3
 
 [node name="Pia-grande" type="Sprite" parent="Objetos/pia"]
 position = Vector2( 83, 47 )
@@ -651,7 +656,8 @@ texture = ExtResource( 9 )
 position = Vector2( 83, 48.875 )
 shape = SubResource( 41 )
 
-[node name="mesa" type="Area2D" parent="Objetos"]
+[node name="mesa" type="RigidBody2D" parent="Objetos"]
+mode = 3
 
 [node name="Mesa-grande" type="Sprite" parent="Objetos/mesa"]
 position = Vector2( 76, 87 )
