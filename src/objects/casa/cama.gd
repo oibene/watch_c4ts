@@ -2,11 +2,13 @@ extends RigidBody2D
 
 onready var animacao = $Animation
 
-var dormiu = false
+var player
 
-func _ready() -> void:
-	pass # Replace with function body.
+func on_body_entered(body):
+	if body.is_in_group("Player"):
+		player = body
+		
 
-func collide_with(colisao: KinematicCollision2D, collider: KinematicBody2D):
-	if !dormiu: #se dormiu eh falso
-		dormiu = true
+func _process(delta) -> void:
+	if Input.action_press("interact") and player != null:
+		animacao.play("dormindo")

@@ -1,17 +1,19 @@
 extends KinematicBody2D
 
-# variaveis
+# VARIAVEIS
+
 var velocidade: Vector2
 export(int) var speed = 60 #var para mover personagem
-
 # var de animacao
 onready var animation_tree: AnimationTree = get_node("AnimationTree")
 onready var estado_animado = animation_tree.get("parameters/playback")
 
-# move nosso ratinho
+# FUNCOES
+
+# funcao q chama funcoes
 func _physics_process(_delta: float) -> void: #roda durante todo nosso jogo
 	mexe()
-	colide()
+
 	
 # move personagem
 func mexe() -> void:
@@ -31,12 +33,4 @@ func mexe() -> void:
 		estado_animado.travel("walk")
 	else:
 		estado_animado.travel("idle")
-
-# p/ colisao
-func colide() -> void:
-	for objeto in get_slide_count():
-		var colisao = get_slide_collision(objeto)
-		if colisao.collider.has_method("collide_with"):
-			colisao.collider.collide_with(colisao, self)
-	
-	pass
+		

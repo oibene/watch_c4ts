@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/rooms/casa/porta.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=62]
+extents = Vector2( 15, 15.25 )
+
+[node name="porta" type="Area2D"]
+position = Vector2( 7, 12 )
+collision_layer = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="colisao-porta" type="CollisionShape2D" parent="."]
+shape = SubResource( 62 )
+
+[connection signal="body_entered" from="." to="." method="_on_porta_body_entered"]
