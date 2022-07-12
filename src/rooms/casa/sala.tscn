@@ -446,9 +446,8 @@ tile_data = PoolIntArray( 2, 16, 0, 3, 14, 0, 4, 14, 0, 5, 14, 0, 6, 14, 0, 7, 1
 
 [node name="Objetos" type="Node2D" parent="."]
 
-[node name="poltrona" type="RigidBody2D" parent="Objetos"]
+[node name="poltrona" type="StaticBody2D" parent="Objetos"]
 position = Vector2( 22, 0 )
-mode = 3
 
 [node name="Poltrona" type="Sprite" parent="Objetos/poltrona"]
 position = Vector2( 103, 104 )
@@ -458,9 +457,8 @@ texture = ExtResource( 2 )
 position = Vector2( 103.75, 104.5 )
 shape = SubResource( 73 )
 
-[node name="sofa" type="RigidBody2D" parent="Objetos"]
+[node name="sofa" type="StaticBody2D" parent="Objetos"]
 position = Vector2( 22, 0 )
-mode = 3
 
 [node name="Sofa-grande" type="Sprite" parent="Objetos/sofa"]
 position = Vector2( 69, 82 )
@@ -470,9 +468,8 @@ texture = ExtResource( 4 )
 position = Vector2( 68.5, 82 )
 shape = SubResource( 71 )
 
-[node name="estante" type="RigidBody2D" parent="Objetos"]
+[node name="estante" type="StaticBody2D" parent="Objetos"]
 position = Vector2( 22, 0 )
-mode = 3
 
 [node name="Estante" type="Sprite" parent="Objetos/estante"]
 position = Vector2( 82, 42 )

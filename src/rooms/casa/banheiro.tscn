@@ -579,8 +579,7 @@ tile_data = PoolIntArray( 1, 22, 0, 2, 17, 0, 3, 17, 0, 4, 17, 0, 5, 17, 0, 6, 2
 
 [node name="Objetos" type="Node2D" parent="."]
 
-[node name="banheira" type="RigidBody2D" parent="Objetos"]
-mode = 3
+[node name="banheira" type="StaticBody2D" parent="Objetos"]
 
 [node name="Banheira" type="Sprite" parent="Objetos/banheira"]
 position = Vector2( 59, 100 )
@@ -590,8 +589,7 @@ texture = ExtResource( 3 )
 position = Vector2( 59, 100 )
 shape = SubResource( 36 )
 
-[node name="pia" type="RigidBody2D" parent="Objetos"]
-mode = 3
+[node name="pia" type="StaticBody2D" parent="Objetos"]
 
 [node name="Pia-pequena" type="Sprite" parent="Objetos/pia"]
 position = Vector2( 47, 48 )
@@ -601,8 +599,7 @@ texture = ExtResource( 4 )
 position = Vector2( 47, 50 )
 shape = SubResource( 37 )
 
-[node name="caixa" type="RigidBody2D" parent="Objetos"]
-mode = 3
+[node name="caixa" type="StaticBody2D" parent="Objetos"]
 
 [node name="Caixa-areia" type="Sprite" parent="Objetos/caixa"]
 position = Vector2( 81, 68 )
