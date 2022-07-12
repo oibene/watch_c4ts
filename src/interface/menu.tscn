@@ -1,21 +1,62 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/interface/start-button.gd" type="Script" id=1]
-[ext_resource path="res://assets/cenario/cozinha/cortina.png" type="Texture" id=2]
+[ext_resource path="res://assets/interface/start-button.png" type="Texture" id=2]
+[ext_resource path="res://assets/interface/options-button.png" type="Texture" id=3]
+[ext_resource path="res://assets/interface/new-game-button.png" type="Texture" id=4]
+[ext_resource path="res://src/interface/new-button.gd" type="Script" id=5]
 
 [node name="menu" type="Node2D"]
 
-[node name="start" type="Button" parent="."]
+[node name="start-button" type="Button" parent="."]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_right = 100.0
+margin_right = 85.0
 margin_bottom = 20.0
+focus_mode = 0
+toggle_mode = true
+shortcut_in_tooltip = false
+icon = ExtResource( 2 )
+flat = true
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Sprite" type="Sprite" parent="start"]
-position = Vector2( 14, 12 )
-texture = ExtResource( 2 )
+[node name="Sprite" type="Sprite" parent="start-button"]
 
-[connection signal="focus_entered" from="start" to="start" method="_on_start_focus_entered"]
-[connection signal="focus_exited" from="start" to="start" method="_on_start_focus_exited"]
-[connection signal="pressed" from="start" to="start" method="_on_start_pressed"]
+[node name="new-button" type="Button" parent="."]
+margin_left = 8.0
+margin_top = 20.0
+margin_right = 78.0
+margin_bottom = 40.0
+flat = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="new-button"]
+position = Vector2( 35, 8 )
+texture = ExtResource( 4 )
+
+[node name="options-button" type="Button" parent="."]
+margin_left = 14.0
+margin_top = 40.0
+margin_right = 69.0
+margin_bottom = 60.0
+flat = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="options-button"]
+position = Vector2( 28, 6 )
+texture = ExtResource( 3 )
+
+[connection signal="focus_entered" from="start-button" to="start-button" method="_on_startbutton_focus_entered"]
+[connection signal="focus_exited" from="start-button" to="start-button" method="_on_startbutton_focus_exited"]
+[connection signal="pressed" from="start-button" to="start-button" method="_on_startbutton_pressed"]
+[connection signal="focus_entered" from="new-button" to="new-button" method="_on_newbutton_focus_entered"]
+[connection signal="focus_exited" from="new-button" to="new-button" method="_on_newbutton_focus_exited"]
+[connection signal="pressed" from="new-button" to="new-button" method="_on_newbutton_pressed"]
